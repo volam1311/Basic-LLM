@@ -1,0 +1,88 @@
+<svg viewBox="0 0 620 580" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background (REQUIRED) -->
+  <rect width="620" height="580" fill="#f8f9fa" rx="10"/>
+
+  <!-- Input text -->
+  <text x="300" y="35" font-family="monospace" font-size="14" text-anchor="middle" fill="#2c3e50">"The cat sat on the"</text>
+
+  <!-- Connector: input to embeddings -->
+  <line x1="300" y1="45" x2="300" y2="65" stroke="#6b7280" stroke-width="2"/>
+  <polygon points="300,70 295,60 305,60" fill="#6b7280"/>
+
+  <!-- Embeddings label -->
+  <text x="300" y="95" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#7f8c8d">Embeddings (convert words to vectors)</text>
+
+  <!-- Connector: embeddings to block 1 -->
+  <line x1="300" y1="105" x2="300" y2="125" stroke="#6b7280" stroke-width="2"/>
+  <polygon points="300,130 295,120 305,120" fill="#6b7280"/>
+
+  <!-- Transformer Block 1 -->
+  <rect x="75" y="135" width="450" height="100" fill="#ffffff" stroke="#dee2e6" stroke-width="2" rx="8"/>
+  <text x="100" y="160" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Transformer Block 1</text>
+
+  <!-- Attention box inside block 1 -->
+  <rect x="100" y="175" width="160" height="45" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="5"/>
+  <text x="180" y="203" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#2c3e50">Attention</text>
+
+  <!-- Arrow between boxes -->
+  <line x1="260" y1="197" x2="290" y2="197" stroke="#6b7280" stroke-width="2"/>
+  <polygon points="295,197 285,192 285,202" fill="#6b7280"/>
+
+  <!-- Feed-Forward box inside block 1 -->
+  <rect x="300" y="175" width="190" height="45" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+  <text x="395" y="203" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#2c3e50">Feed-Forward</text>
+
+  <!-- Connector: block 1 to block 2 -->
+  <line x1="300" y1="235" x2="300" y2="255" stroke="#6b7280" stroke-width="2"/>
+  <polygon points="300,260 295,250 305,250" fill="#6b7280"/>
+
+  <!-- Transformer Block 2 -->
+  <rect x="75" y="265" width="450" height="100" fill="#ffffff" stroke="#dee2e6" stroke-width="2" rx="8"/>
+  <text x="100" y="290" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Transformer Block 2</text>
+
+  <!-- Attention box inside block 2 -->
+  <rect x="100" y="305" width="160" height="45" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="5"/>
+  <text x="180" y="333" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#2c3e50">Attention</text>
+
+  <!-- Arrow between boxes -->
+  <line x1="260" y1="327" x2="290" y2="327" stroke="#6b7280" stroke-width="2"/>
+  <polygon points="295,327 285,322 285,332" fill="#6b7280"/>
+
+  <!-- Feed-Forward box inside block 2 -->
+  <rect x="300" y="305" width="190" height="45" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+  <text x="395" y="333" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#2c3e50">Feed-Forward</text>
+
+  <!-- Connector: block 2 to dots -->
+  <line x1="300" y1="365" x2="300" y2="385" stroke="#6b7280" stroke-width="2"/>
+
+  <!-- More blocks indicator -->
+  <text x="300" y="410" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#7f8c8d">...</text>
+  <text x="300" y="430" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#7f8c8d">(more blocks)</text>
+
+  <!-- Connector: dots to output -->
+  <line x1="300" y1="440" x2="300" y2="460" stroke="#6b7280" stroke-width="2"/>
+  <polygon points="300,465 295,455 305,455" fill="#6b7280"/>
+
+  <!-- Output pipeline -->
+  <rect x="110" y="475" width="110" height="45" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="5"/>
+  <text x="165" y="503" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#2c3e50">LM Head</text>
+
+  <!-- Arrow to softmax -->
+  <line x1="220" y1="497" x2="240" y2="497" stroke="#6b7280" stroke-width="2"/>
+  <polygon points="245,497 235,492 235,502" fill="#6b7280"/>
+
+  <!-- Softmax -->
+  <rect x="250" y="475" width="110" height="45" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+  <text x="305" y="503" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#2c3e50">Softmax</text>
+
+  <!-- Arrow to prediction -->
+  <line x1="360" y1="497" x2="380" y2="497" stroke="#6b7280" stroke-width="2"/>
+  <polygon points="385,497 375,492 375,502" fill="#6b7280"/>
+
+  <!-- Prediction -->
+  <rect x="390" y="475" width="90" height="45" fill="#d1fae5" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="435" y="503" font-family="monospace" font-size="13" text-anchor="middle" fill="#2c3e50">"mat"</text>
+
+  <!-- Prediction label -->
+  <text x="435" y="545" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#7f8c8d">(prediction)</text>
+</svg>
