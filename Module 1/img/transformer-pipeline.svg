@@ -1,0 +1,152 @@
+<svg viewBox="0 0 850 1600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background (REQUIRED) -->
+  <rect width="850" height="1600" fill="#f8f9fa" rx="10"/>
+
+  <!-- Input Section -->
+  <rect x="225" y="25" width="400" height="60" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="8"/>
+  <text x="425" y="58" font-family="monospace" font-size="18" text-anchor="middle" fill="#2c3e50">Input: "the cat"</text>
+
+  <!-- Connector -->
+  <path d="M 425,85 L 425,115" stroke="#6b7280" stroke-width="2" fill="none"/>
+
+  <!-- MODULE 1: From Text to Numbers -->
+  <rect x="40" y="115" width="770" height="235" fill="#ffffff" stroke="#3498db" stroke-width="2" rx="8"/>
+  <rect x="40" y="115" width="770" height="50" fill="#3498db" rx="8"/>
+  <rect x="40" y="157" width="770" height="8" fill="#3498db"/>
+  <text x="425" y="145" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">MODULE 1: From Text to Numbers</text>
+
+  <!-- Tokenization -->
+  <text x="70" y="195" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Tokenization</text>
+  <text x="70" y="215" font-family="monospace" font-size="13" fill="#6b7280">"the cat" → [token_id_2, token_id_15]</text>
+
+  <!-- Token Embedding -->
+  <text x="70" y="255" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Token Embedding (W_E)</text>
+  <text x="70" y="275" font-family="monospace" font-size="13" fill="#6b7280">[2, 15] → [[0.2, -0.5, ...], [0.3, 0.1, ...]]</text>
+  <text x="490" y="275" font-family="Arial, sans-serif" font-size="12" fill="#9b59b6">(d_model dims)</text>
+
+  <!-- Positional Encoding -->
+  <text x="70" y="310" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Positional Encoding</text>
+  <text x="70" y="330" font-family="monospace" font-size="13" fill="#6b7280">Add position info → embeddings know position</text>
+
+  <!-- Connector -->
+  <path d="M 425,350 L 425,380" stroke="#6b7280" stroke-width="2" fill="none"/>
+
+  <!-- MODULE 2: Predicting the Next Word -->
+  <rect x="40" y="380" width="770" height="180" fill="#ffffff" stroke="#f39c12" stroke-width="2" rx="8"/>
+  <rect x="40" y="380" width="770" height="50" fill="#f39c12" rx="8"/>
+  <rect x="40" y="422" width="770" height="8" fill="#f39c12"/>
+  <text x="425" y="410" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">MODULE 2: Predicting Next Word (Simple)</text>
+
+  <!-- Matrix Multiplication -->
+  <text x="70" y="465" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Matrix Multiplication</text>
+  <text x="70" y="485" font-family="monospace" font-size="13" fill="#6b7280">embeddings @ W_lm → vocabulary scores</text>
+
+  <!-- Softmax -->
+  <text x="70" y="520" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Softmax</text>
+  <text x="70" y="540" font-family="monospace" font-size="13" fill="#6b7280">scores → probabilities (sum to 1.0)</text>
+
+  <!-- Connector -->
+  <path d="M 425,560 L 425,590" stroke="#6b7280" stroke-width="2" fill="none"/>
+
+  <!-- MODULE 3: Attention Mechanism -->
+  <rect x="40" y="590" width="770" height="360" fill="#ffffff" stroke="#9b59b6" stroke-width="2" rx="8"/>
+  <rect x="40" y="590" width="770" height="50" fill="#9b59b6" rx="8"/>
+  <rect x="40" y="632" width="770" height="8" fill="#9b59b6"/>
+  <text x="425" y="620" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">MODULE 3: Attention Mechanism</text>
+
+  <!-- Transformer Block Label -->
+  <rect x="60" y="655" width="730" height="280" fill="#f3e8ff" stroke="#9b59b6" stroke-width="1" stroke-dasharray="5,3" rx="5"/>
+  <text x="425" y="675" font-family="Arial, sans-serif" font-size="13" font-style="italic" text-anchor="middle" fill="#7c3aed">TRANSFORMER BLOCK (repeated N times)</text>
+
+  <!-- Layer Norm 1 -->
+  <text x="80" y="705" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Layer Norm 1</text>
+  <text x="210" y="705" font-family="monospace" font-size="13" fill="#6b7280">Normalize input</text>
+
+  <!-- Multi-Head Attention -->
+  <rect x="80" y="720" width="690" height="135" fill="#ede9fe" stroke="#a78bfa" stroke-width="1" rx="5"/>
+  <text x="90" y="740" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Multi-Head Attention</text>
+
+  <text x="100" y="770" font-family="monospace" font-size="12" fill="#6b7280">Q = input @ W_Q</text>
+  <text x="260" y="770" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed">(Query: what am I looking for?)</text>
+
+  <text x="100" y="790" font-family="monospace" font-size="12" fill="#6b7280">K = input @ W_K</text>
+  <text x="260" y="790" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed">(Key: how should I be found?)</text>
+
+  <text x="100" y="810" font-family="monospace" font-size="12" fill="#6b7280">V = input @ W_V</text>
+  <text x="260" y="810" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed">(Value: what do I output?)</text>
+
+  <text x="500" y="770" font-family="monospace" font-size="11" fill="#6b7280">scores = (Q @ K^T) / √d_k</text>
+  <text x="500" y="790" font-family="monospace" font-size="11" fill="#6b7280">weights = softmax(scores)</text>
+  <text x="500" y="810" font-family="monospace" font-size="11" fill="#6b7280">output = weights @ V</text>
+
+  <text x="100" y="840" font-family="monospace" font-size="12" fill="#6b7280">Concatenate heads → @ W_O</text>
+
+  <!-- Residual Connection 1 -->
+  <text x="80" y="880" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Residual Connection</text>
+  <text x="250" y="880" font-family="monospace" font-size="13" fill="#6b7280">output = attention_out + original_input</text>
+
+  <!-- Arrow to Module 4 -->
+  <text x="425" y="920" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6b7280">↓</text>
+
+  <!-- Connector -->
+  <path d="M 425,950 L 425,980" stroke="#6b7280" stroke-width="2" fill="none"/>
+
+  <!-- MODULE 4: The Transformer Architecture -->
+  <rect x="40" y="980" width="770" height="285" fill="#ffffff" stroke="#27ae60" stroke-width="2" rx="8"/>
+  <rect x="40" y="980" width="770" height="50" fill="#27ae60" rx="8"/>
+  <rect x="40" y="1022" width="770" height="8" fill="#27ae60"/>
+  <text x="425" y="1010" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">MODULE 4: Transformer Architecture</text>
+
+  <!-- Continuation indicator -->
+  <rect x="60" y="1045" width="730" height="215" fill="#ecfdf5" stroke="#27ae60" stroke-width="1" stroke-dasharray="5,3" rx="5"/>
+  <text x="425" y="1065" font-family="Arial, sans-serif" font-size="13" font-style="italic" text-anchor="middle" fill="#059669">Continues from attention block...</text>
+
+  <!-- Layer Norm 2 -->
+  <text x="80" y="1095" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Layer Norm 2</text>
+  <text x="210" y="1095" font-family="monospace" font-size="13" fill="#6b7280">Normalize</text>
+
+  <!-- Feed-Forward Network -->
+  <rect x="80" y="1110" width="690" height="80" fill="#d1fae5" stroke="#34d399" stroke-width="1" rx="5"/>
+  <text x="90" y="1130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Feed-Forward Network</text>
+
+  <text x="100" y="1155" font-family="monospace" font-size="12" fill="#6b7280">expand   = input @ W_1 + b_1</text>
+  <text x="330" y="1155" font-family="Arial, sans-serif" font-size="11" fill="#059669">(d_model → d_ff)</text>
+
+  <text x="100" y="1175" font-family="monospace" font-size="12" fill="#6b7280">activate = GELU(expand)</text>
+  <text x="330" y="1175" font-family="Arial, sans-serif" font-size="11" fill="#059669">(non-linearity)</text>
+
+  <text x="500" y="1155" font-family="monospace" font-size="12" fill="#6b7280">compress = activate @ W_2 + b_2</text>
+  <text x="500" y="1175" font-family="Arial, sans-serif" font-size="11" fill="#059669">(d_ff → d_model)</text>
+
+  <!-- Residual Connection 2 -->
+  <text x="80" y="1215" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Residual Connection</text>
+  <text x="250" y="1215" font-family="monospace" font-size="13" fill="#6b7280">output = ffn_output + input</text>
+
+  <!-- Repeat indicator -->
+  <text x="425" y="1240" font-family="Arial, sans-serif" font-size="12" font-style="italic" text-anchor="middle" fill="#6b7280">[Repeat for next transformer block...]</text>
+
+  <!-- Connector -->
+  <path d="M 425,1265 L 425,1295" stroke="#6b7280" stroke-width="2" fill="none"/>
+
+  <!-- FINAL OUTPUT -->
+  <rect x="40" y="1295" width="770" height="280" fill="#ffffff" stroke="#e74c3c" stroke-width="2" rx="8"/>
+  <rect x="40" y="1295" width="770" height="50" fill="#e74c3c" rx="8"/>
+  <rect x="40" y="1337" width="770" height="8" fill="#e74c3c"/>
+  <text x="425" y="1325" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">FINAL OUTPUT</text>
+
+  <!-- Take Last Token -->
+  <text x="70" y="1375" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Take Last Token's Representation</text>
+  <text x="70" y="1395" font-family="monospace" font-size="13" fill="#6b7280">final_repr @ W_lm → vocabulary_scores</text>
+
+  <!-- Softmax -->
+  <text x="70" y="1430" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Softmax</text>
+  <text x="70" y="1450" font-family="monospace" font-size="13" fill="#6b7280">scores → probabilities</text>
+
+  <!-- Sampling -->
+  <text x="70" y="1485" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Sampling (greedy/temperature)</text>
+  <text x="70" y="1505" font-family="monospace" font-size="13" fill="#6b7280">probabilities → predicted_token</text>
+
+  <!-- Output -->
+  <rect x="225" y="1520" width="400" height="55" fill="#fef2f2" stroke="#e74c3c" stroke-width="2" rx="8"/>
+  <text x="425" y="1552" font-family="monospace" font-size="18" text-anchor="middle" fill="#dc2626">Output: "sat"</text>
+</svg>
