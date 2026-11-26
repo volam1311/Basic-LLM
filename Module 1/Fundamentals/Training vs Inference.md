@@ -1,33 +1,22 @@
-# Training vs Inference:
+# Training and inference
 
-We know the transformer architecture: embeddings flow through and feed-forward blocks. then the LM head produces the prediction. The flow from the input to output is called forward pass.
+The path from input text to a next-word prediction is the forward pass. A chat model runs that pass with weights that stay fixed. That use is inference.
 
-Every time we ask ChatGPT a question, it runs this forward pass. The text goes in and the predictions come out. The weights stay frozen, they donot change. This is called the inference mode: where we use a pretrained model to make the predictions.
+Before training, those weights are random numbers, and the forward pass produces nonsense. Training shows the model many texts, compares each prediction with the true next token, and adjusts the weights.
 
-## Where the weights come from?
+```mermaid
+flowchart LR
+  data[Text and current weights] --> forward[Forward pass]
+  forward --> pred[Prediction]
+  pred --> compare[Compare with the true next token]
+  compare --> backward[Backward pass]
+  backward --> updated[Updated weights]
+```
 
-The weight were not always useful. Before training, they are random numbers. A random transformer produces garbage as it might predict the wrong next word. 
+The adjustment needs the backward pass. Backpropagation computes how each weight contributed to the error. It stores intermediate values from the forward pass and walks back through every layer.
 
-Training is how those random weights become useful pattern detectors. The model processes billions of text examples, compares its prediction to the next actual words, and adjusts its weights to make better predictions. 
+Inference is the forward box alone. The weights stay as training left them.
 
-## Training adds Backward Pass:
+This course stays on the forward pass. A full training run adds a loss function, gradients, and an optimizer on top of the same computation.
 
-Training needs more than the forward pass. After each prediction, it must figure out how to improve. The backward pass (backpropagation) computes the gradients. This requires storing immediate values from the forward pass and running calculation backward through every layer.
-
-Inference skips all of this. Weights are frozen, the model just run forward and output the prediction.
-
-## Understanding Forward Pass:
-
-Understanding the forward pass is the foundation. It is where you learn what each component actually does:
-
-- How embeddings convert words to vectors
-- How attention finds relationships between words
-- How feed-forward networks transform representations
-- How the LM head produces vocabulary scores
-- How softmax converts scores to probabilities
-
-Training adds some more on top of the forward pass (optimization, loss functions, gradients) but the core computation is the same. 
-
-## Pre-trained Tiny Model:
-
-We will work with a tiny model that has been trained. The weights are frozen and we are purely in the inference mode. We will load the weights, run forward pass, and see how predictions emerge from the architecture.
+Next: [Vectors and the dot product](<../Linear Algebra Basics/Vectors and the Dot Product.md>)
