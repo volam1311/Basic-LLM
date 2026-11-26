@@ -1,0 +1,93 @@
+site_name: Basic LLM
+site_description: How a transformer turns text into the next word, one stage of the forward pass at a time.
+site_url: https://volam1311.github.io/Basic-LLM/
+repo_url: https://github.com/volam1311/Basic-LLM
+repo_name: volam1311/Basic-LLM
+edit_uri: ""
+
+# site/prepare.sh copies the notes into docs/ before every build.
+docs_dir: docs
+site_dir: build
+strict: true
+
+theme:
+  name: material
+  language: en
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    logo: material/brain
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.footer
+    - navigation.top
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - assets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Home: index.md
+  - "1 · Text to numbers":
+      - Introduction: Module 1/Introduction.md
+      - What an LLM does: Module 1/Fundamentals/What an LLM Does.md
+      - The pipeline: Module 1/Fundamentals/Pipeline.md
+      - Training and inference: Module 1/Fundamentals/Training vs Inference.md
+      - Vectors and the dot product: Module 1/Linear Algebra Basics/Vectors and the Dot Product.md
+      - Matrices, shapes, and multiplication: Module 1/Linear Algebra Basics/Matrices and Shapes.md
+      - Tokens and BPE: Module 1/Text to Numbers/Tokens and BPE.md
+      - Embeddings: Module 1/Text to Numbers/Embeddings.md
+  - "2 · Next word":
+      - Logits and softmax: Module 2/Logits and Softmax.md
+      - The last-word predictor: Module 2/The Last-Word Predictor.md
+  - "3 · Attention":
+      - Why the last token is not enough: Module 3/Why the Last Token Is Not Enough.md
+      - One attention head: Module 3/One Attention Head.md
+      - Multi-head attention: Module 3/Multi-Head Attention.md
+      - Position: Module 3/Position.md
+      - A context-aware predictor: Module 3/Context-Aware Predictor.md
+  - "4 · The transformer":
+      - Residuals and layer norm: Module 4/Residuals and Layer Norm.md
+      - The feed-forward network: Module 4/Feed-Forward.md
+      - One block, then a stack: Module 4/One Block.md
+      - Generation: Module 4/Generation.md
+      - Paper map: Module 4/Paper Map.md
